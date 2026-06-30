@@ -1,14 +1,14 @@
-output "aws_region" {
-  description = "AWS Region name"
-  value       = data.aws_region.this.name
+output "id" {
+  description = "Grafana workspace ID."
+  value       = var.enabled ? aws_grafana_workspace.this[0].id : ""
 }
 
-output "private_subnet_ids" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group#subnet_ids"
-  value       = var.private_subnet_ids
+output "arn" {
+  description = "Grafana workspace ARN."
+  value       = var.enabled ? aws_grafana_workspace.this[0].arn : ""
 }
 
-output "vpc_id" {
-  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group#vpc_id"
-  value       = var.vpc_id
+output "endpoint" {
+  description = "Grafana workspace URL."
+  value       = var.enabled ? aws_grafana_workspace.this[0].endpoint : ""
 }
